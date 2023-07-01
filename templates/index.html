@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Score Tracker</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Score Tracker</h1>
+
+      <h2>Add Player</h2>
+      <form action="/add_player" method="post">
+        <input type="text" name="player_name" placeholder="Player Name" required>
+        <input type="submit" value="Add Player">
+      </form>
+
+      <h2>Add Points</h2>
+      <form action="/add_points" method="post">
+        <select name="player_name">
+          {% for player in players %}
+          <option value="{{ player['name'] }}">{{ player['name'] }}</option>
+          {% endfor %}
+        </select>
+        <input type="number" name="points" placeholder="Points" required>
+        <input type="submit" value="Add Points">
+      </form>
+
+      <h2>Players and Points</h2>
+      <ul>
+        {% for player in players %}
+        <li>{{ player['name'] }}: {{ player['points'] }}</li>
+        {% endfor %}
+      </ul>
+
+      <form action="/reset_game" method="post">
+        <input type="submit" value="Reset Game">
+      </form>
+
+      <a href="/end_game">End Game</a>
+    </div>
+  </body>
+</html>
