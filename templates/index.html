@@ -8,22 +8,22 @@
     <div class="container">
       <h1>ScoreKeeper</h1>
 
-      <h2>Add Player</h2>
+
       <form action="/add_player" method="post">
-        <input type="text" name="player_name" placeholder="Player Name" required maxlength="15" size="15">
+        <input type="text" name="player_name" placeholder="       Player Name       " required maxlength="15" size="15">
         <input type="submit" value="Add Player">
       </form>
 
-      <h2>Add Points</h2>
+
       <form action="/add_points" method="post">
         {% for player in players %}
             <input type="radio" name="player_name" value="{{ player['name'] }}" required>{{ player['name'] }}<br>
         {% endfor %}
-        <input type="number" name="points" placeholder="Points" required min="0" max="99" size="2">
+        <input type="number" name="points" placeholder=" Points" required min="0" max="99" size="2">
         <input type="submit" value="Add Points">
       </form>
 
-      <h2>Players and Points</h2>
+
       <ul>
         {% for player in players %}
         <li>{{ player['name'] }}: {{ player['points'] }}</li>
