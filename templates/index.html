@@ -6,23 +6,21 @@
   </head>
   <body>
     <div class="container">
-      <h1>ScoreKeeper</h1>
 
+      <img class="logo" src="{{ url_for('static', filename='SCORE.jpg') }}" alt="ScoreKeeper Logo">
 
       <form action="/add_player" method="post">
         <input type="text" name="player_name" placeholder="       Player Name       " required maxlength="15" size="15">
-        <input type="submit" value="Add Player">
+        <input class="custom-button" type="submit" value="Add Player">
       </form>
-
 
       <form action="/add_points" method="post">
         {% for player in players %}
             <input type="radio" name="player_name" value="{{ player['name'] }}" required>{{ player['name'] }}<br>
         {% endfor %}
         <input type="number" name="points" placeholder=" Points" required min="0" max="99" size="2">
-        <input type="submit" value="Add Points">
+        <input class="custom-button" type="submit" value="Add Points">
       </form>
-
 
       <ul>
         {% for player in players %}
@@ -31,7 +29,7 @@
       </ul>
 
       <form action="/reset_game" method="post">
-        <input type="submit" value="Reset Game">
+        <input class="custom-button" type="submit" value="Reset Game">
       </form>
 
       <a href="/end_game">End Game</a>
