@@ -5,14 +5,9 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
   </head>
   <body>
-    <h1>End Game</h1>
-    <h2>Players and Points</h2>
-    <ul>
-      {% for player in players %}
-      <li>{{ player['name'] }}: {{ player['points'] }}</li>
-      {% endfor %}
-    </ul>
-    <h2>Winner</h2>
-    <p>{{ winner['name'] }} - Points: {{ winner['points'] }}</p>
+    <div class="container">
+      <h1>Congratulations {{ winner['name'] }}!</h1>
+      <p>You've won!</p>
+    </div>
   </body>
 </html>

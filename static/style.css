@@ -1,19 +1,28 @@
-/* styles.css */
-
-body {
+body, html {
+  height: 100%;
   font-family: Arial, sans-serif;
   background-color: #f2f2f2;
   margin: 0;
   padding: 0;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .container {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 10 auto;
   padding: 20px;
   background-color: #ffffff;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+  border: 30px solid transparent;
+  border-image: url('/static/BG.jpg') 30 round;
 }
 
 h1 {
@@ -33,11 +42,18 @@ label {
 }
 
 input[type="text"],
-input[type="number"] {
-  width: 100%;
+input[type="number"],
+input[type="radio"] + label {
+  margin: 0 auto;
   padding: 10px;
   border: 1px solid #cccccc;
   border-radius: 5px;
+  display: block;
+}
+
+input[name="player_name"],
+input[name="points"] {
+  width: auto;
 }
 
 input[type="submit"] {
@@ -47,6 +63,8 @@ input[type="submit"] {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  display: block;
+  margin: 10px auto;
 }
 
 .message {

@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Score Tracker</title>
+    <title>ScoreKeeper</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
   </head>
   <body>
     <div class="container">
-      <h1>Score Tracker</h1>
+      <h1>ScoreKeeper</h1>
 
       <h2>Add Player</h2>
       <form action="/add_player" method="post">
-        <input type="text" name="player_name" placeholder="Player Name" required>
+        <input type="text" name="player_name" placeholder="Player Name" required maxlength="15" size="15">
         <input type="submit" value="Add Player">
       </form>
 
       <h2>Add Points</h2>
       <form action="/add_points" method="post">
-        <select name="player_name">
-          {% for player in players %}
-          <option value="{{ player['name'] }}">{{ player['name'] }}</option>
-          {% endfor %}
-        </select>
-        <input type="number" name="points" placeholder="Points" required>
+        {% for player in players %}
+            <input type="radio" name="player_name" value="{{ player['name'] }}" required>{{ player['name'] }}<br>
+        {% endfor %}
+        <input type="number" name="points" placeholder="Points" required min="0" max="99" size="2">
         <input type="submit" value="Add Points">
       </form>
 
