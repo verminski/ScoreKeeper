@@ -14,7 +14,7 @@
         <input class="custom-button" type="submit" value="Add Player">
       </form>
 
-      <form action="/add_points" method="post">
+      <form action="/add_points" method="post" onsubmit="return validateForm()">
         {% for player in players %}
             <input type="radio" name="player_name" value="{{ player['name'] }}" required>{{ player['name'] }}<br>
         {% endfor %}
@@ -32,7 +32,23 @@
         <input class="custom-button" type="submit" value="Reset Game">
       </form>
 
-      <a href="/end_game">End Game</a>
+      <form action="/end_game" method="post">
+        <input class="custom-button custom-button-danger" type="submit" value="End Game">
+      </form>
+
     </div>
+
+    <script>
+        function validateForm() {
+            var radios = document.querySelectorAll('input[type="radio"][name="player_name"]');
+
+            if (radios.length === 0) {
+                alert("Add a player first, you dingus >:(");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
   </body>
 </html>

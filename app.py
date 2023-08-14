@@ -24,7 +24,7 @@ def add_points():
             break
     return redirect('/')
 
-@app.route('/end_game')
+@app.route('/end_game', methods=['GET', 'POST'])
 def end_game():
     if not players:
         return render_template('no_players.html')
