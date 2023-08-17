@@ -16,9 +16,10 @@
 
       <form action="/add_points" method="post" onsubmit="return validateForm()">
         {% for player in players %}
-            <input type="radio" name="player_name" value="{{ player['name'] }}" required>{{ player['name'] }}<br>
+            <input type="radio" id="{{ player['name'] }}" name="player_name" value="{{ player['name'] }}" required>
+            <label for="{{ player['name'] }}">{{ player['name'] }}</label>
         {% endfor %}
-        <input type="number" name="points" placeholder=" Points" required min="0" max="99" size="2">
+        <input class="points-input" type="number" name="points" placeholder=" Points" required min="0" max="99">
         <input class="custom-button" type="submit" value="Add Points">
       </form>
 

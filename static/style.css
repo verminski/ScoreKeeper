@@ -41,8 +41,7 @@ label {
 }
 
 input[type="text"],
-input[type="number"],
-input[type="radio"] + label {
+input[type="number"] {
   margin: 0 auto;
   padding: 10px;
   border: 1px solid #cccccc;
@@ -81,4 +80,25 @@ input[type="submit"]:hover {
 
 .logo {
     margin-bottom: 1em;
+}
+
+
+input[type="radio"] {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+input[type="radio"] + label {
+    display: inline-block;
+    margin: 0;
+    padding: 10px;
+    border: none;
+    vertical-align: middle;
+}
+
+.points-input {
+    display: inline-block;
+    width: 40px;
+    margin-left: 10px;
+    vertical-align: middle;
 }
